@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Hotel Nanny Project Rule
+
+
+## Project Context
+
+
+This is a comprehensive rule for the Hotel Nanny web application project - a Next.js-based community marketplace connecting individuals seeking childcare services with local "Nannys" who offer their childcare services.
+
+
+## Project Documentation Understanding
+
+
+Before assisting with any task, always read and understand:
+
+
+1. [workflow.md](mdc:docs/workflow.md) - Contains detailed architecture, user roles, workflows, data models
+2. [prd.md](mdc:docs/prd.md) - Product Requirements Document with objectives, target audience, features
+3. [implementation-plan](mdc:docs/implementation-plan) - Development phases, timelines, and specific task priorities
+4. [designplan](mdc:docs/designplan) - Design Plan document follow the UI and UX and CSS styles
+5. [tech-stack.md](mdc:docs/tech-stack.md) - Tech Stack understadn the projects technology stack used to build the web app.
+
+
+## Key Project Components
+
+
+- Next.js 14 with App Router and TypeScript
+- TailwindCSS with custom blue theme (Primary: #3498db, Secondary: #85c1e9, Accent: #2980b9)
+- Supabase backend (Authentication, Database, Storage)
+- Role-based architecture (Users, Nannys, Admin)
+- Multi-layered referral system for platform growth
+
+
+## Implementation Tracking
+
+
+After completing any @implementation-plan.md implementation task:
+
+
+1. Add detailed notes about what was completed
+2. Update the corresponding task in the implementation plan
+3. Note any deviations from the original plan and reasons
+4. Record any remaining subtasks or follow-up items

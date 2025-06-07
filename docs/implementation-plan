@@ -1,0 +1,174 @@
+@implementation-plan.md 
+
+# Implementation Plan: London Nanny Platform (Comprehensive)
+
+This document provides a granular, step-by-step plan for the development of the London Nanny booking platform. Each task is designed to be a discrete unit of work.
+
+---
+
+## Phase 1: Project Setup & Foundation
+
+This phase establishes the technical bedrock of the application.
+
+| Task                                                                                   | Status |
+| :------------------------------------------------------------------------------------- | :----: |
+| **1.1:** Initialize Next.js 14+ project with the App Router and TypeScript.            | `☐`    |
+| **Notes:** > *Ensure Tailwind CSS is configured during the setup process.* |
+| **1.2:** Set up Supabase project: initialize database, auth, and storage.                | `☐`    |
+| **Notes:** > *Save project URL and anon key as environment variables (`.env.local`).* |
+| **1.3:** Create a Supabase client helper (`/lib/supabase/client.ts`) for client-side interactions. | `☐`    |
+| **Notes:** > *This will be used in components and pages for data fetching.* |
+| **1.4:** Create a Supabase admin helper (`/lib/supabase/admin.ts`) for server-side/admin tasks. | `☐`    |
+| **Notes:** > *Use the service role key for elevated privileges in API routes.* |
+| **1.5:** Configure Vercel project and link to the GitHub repository for CI/CD.          | `☐`    |
+| **Notes:** > *Add Supabase environment variables to the Vercel project settings.* |
+| **1.6:** Define the global layout (`/app/layout.tsx`) with primary font and background color. | `☐`    |
+| **Notes:** > *Import "Inter" and "Playfair Display" fonts from Google Fonts here.* |
+| **1.7:** Create a UI component library directory (`/components/ui`).                       | `☐`    |
+| **Notes:** > *This will house all reusable, generic components like Button, Input, Card.* |
+| **1.8:** Implement the reusable `Button.tsx` component with variants.                   | `☐`    |
+| **Notes:** > *Variants: primary (navy), secondary (gold), destructive (terracotta). Add loading state.* |
+| **1.9:** Implement the reusable `Card.tsx` component.                                   | `☐`    |
+| **Notes:** > *A generic wrapper with soft shadows and rounded corners.* |
+| **1.10:** Implement the reusable `Input.tsx` and `Label.tsx` components.                | `☐`    |
+| **Notes:** > *These will be used in all forms across the application.* |
+
+---
+
+## Phase 2: User & Nanny Onboarding
+
+This phase focuses on how users and nannies join the platform.
+
+| Task                                                                     | Status |
+| :----------------------------------------------------------------------- | :----: |
+| **2.1:** Create database schema: `profiles` table for shared user/nanny data. | `☐`    |
+| **Notes:** > *Columns: `id` (FK to auth.users), `role` (client/nanny), `first_name`, `last_name`.* |
+| **2.2:** Create database schema: `nannies` table for nanny-specific data. | `☐`    |
+| **Notes:** > *Columns: `profile_id`, `bio`, `hourly_rate`, `availability_json`, `stripe_account_id`.* |
+| **2.3:** Create database schema: `children` table for client's child information. | `☐`    |
+| **Notes:** > *Columns: `profile_id`, `name`, `dob`, `dietary_requirements_text`.* |
+| **2.4:** Build the User (Client) registration form and `/signup` page.      | `☐`    |
+| **Notes:** > *Use Supabase Auth for email/password signup. Create a corresponding entry in `profiles` table.* |
+| **2.5:** Build the User (Client) login form and `/login` page.             | `☐`    |
+| **Notes:** > *Handle login logic and redirects to the client dashboard upon success.* |
+| **2.6:** Build the multi-step Nanny application form (`/apply`).             | `☐`    |
+| **Notes:** > *Step 1: Account info. Step 2: Professional details. Step 3: Verification.* |
+| **2.7:** Integrate Stripe Identity for the verification step of the Nanny application. | `☐`    |
+| **Notes:** > *This will require an API route to create a Stripe Identity session.* |
+| **2.8:** Create a webhook endpoint (`/api/stripe-webhooks`) to listen for Stripe events. | `☐`    |
+| **Notes:** > *Specifically, listen for `identity.verification_session.verified` to update nanny status.* |
+| **2.9:** Implement "Forgot Password" functionality.                       | `☐`    |
+| **Notes:** > *Leverage Supabase Auth's built-in password recovery flow.* |
+
+---
+
+## Phase 3: Public-Facing Pages & Core Content
+
+This phase involves building all the pages accessible to non-logged-in visitors.
+
+| Task                                                                 | Status |
+| :------------------------------------------------------------------- | :----: |
+| **3.1:** Build the shared `Navbar.tsx` component for the public layout. | `☐`    |
+| **Notes:** > *Implement logic for transparent-to-solid background on scroll.* |
+| **3.2:** Build the shared `Footer.tsx` component.                       | `☐`    |
+| **Notes:** > *Include all required navigation links and a simple sitemap structure.* |
+| **3.3:** Build the Homepage (`/app/page.tsx`) with all specified sections. | `☐`    |
+| **Notes:** > *Use static data for "Featured Nannies" and "Testimonials" initially.* |
+| **3.4:** Build the Pricing page (`/pricing/page.tsx`) with a pricing table component. | `☐`    |
+| **Notes:** > *Clearly structure the table with rates and supplementary fees.* |
+| **3.5:** Build the Compliance & Vetting page (`/compliance/page.tsx`). | `☐`    |
+| **Notes:** > *Focus on clean typography and readability for this text-heavy page.* |
+| **3.6:** Build the FAQ page (`/faq/page.tsx`) with a reusable Accordion component. | `☐`    |
+| **Notes:** > *The Accordion should be a generic component placed in `/components/ui`.* |
+| **3.7:** Build the About Us page (`/about/page.tsx`).                   | `☐`    |
+| **Notes:** > *Structure with a hero image, mission statement, and team section.* |
+
+---
+
+## Phase 4: Nanny Profiles & Search Functionality
+
+This phase enables clients to find and view potential nannies.
+
+| Task                                                               | Status |
+| :----------------------------------------------------------------- | :----: |
+| **4.1:** Build the Nanny search page (`/find-a-nanny/page.tsx`).      | `☐`    |
+| **Notes:** > *Include filters for date, time, and location (initially a text input).* |
+| **4.2:** Create the public-facing Nanny Profile page (`/nanny/[id]/page.tsx`). | `☐`    |
+| **Notes:** > *This dynamic page will fetch and display data for a specific nanny.* |
+| **4.3:** Develop the server-side logic to fetch and filter available nannies. | `☐`    |
+| **Notes:** > *Function will query the `nannies` table and check availability from the JSON field.* |
+| **4.4:** Implement the nanny profile card component for the search results page. | `☐`    |
+| **Notes:** > *Display key info: photo, name, hourly rate, and a short bio snippet.* |
+
+---
+
+## Phase 5: Booking & Payments Workflow
+
+This phase covers the critical path of booking and paying for a nanny.
+
+| Task                                                                     | Status |
+| :----------------------------------------------------------------------- | :----: |
+| **5.1:** Create database schema: `bookings` table.                       | `☐`    |
+| **Notes:** > *Columns: `id`, `client_id`, `nanny_id`, `start_time`, `end_time`, `status`, `stripe_payment_intent_id`.* |
+| **5.2:** Build the booking form/page, initiated from a nanny's profile.    | `☐`    |
+| **Notes:** > *Prefill nanny info. Allow user to select child, confirm date/time.* |
+| **5.3:** Create an API route (`/api/create-payment-intent`) to interact with Stripe. | `☐`    |
+| **Notes:** > *This will create a Payment Intent for the calculated booking amount.* |
+| **5.4:** Integrate Stripe Elements (Card Element) on the frontend for payment. | `☐`    |
+| **Notes:** > *Securely collect card details and confirm the payment using the intent from the API.* |
+| **5.5:** Implement logic to update booking status to 'confirmed' upon successful payment. | `☐`    |
+| **Notes:** > *This should happen in the backend after the Stripe payment is successful.* |
+| **5.6:** Set up Stripe Connect for nanny payouts.                         | `☐`    |
+| **Notes:** > *Nannies will need to connect their bank accounts via a Stripe-hosted onboarding flow.* |
+| **5.7:** Implement logic to trigger payouts to nannies after a booking is completed. | `☐`    |
+| **Notes:** > *This could be an automated cron job or a manual admin action.* |
+
+---
+
+## Phase 6: Dashboards (Client, Nanny, Admin)
+
+This phase involves building the authenticated areas for each user role.
+
+| Task                                                                   | Status |
+| :--------------------------------------------------------------------- | :----: |
+| **6.1:** Build the Client Dashboard layout and main page (`/client/dashboard/page.tsx`). | `☐`    |
+| **Notes:** > *Fetch and display lists of upcoming and past bookings for the logged-in client.* |
+| **6.2:** Build the "Manage Children" section for the Client Dashboard.     | `☐`    |
+| **Notes:** > *Allow clients to CRUD their children's information.* |
+| **6.3:** Build the Nanny Dashboard layout and main page (`/nanny/dashboard/page.tsx`). | `☐`    |
+| **Notes:** > *Show booking requests, confirmed jobs, and an earnings summary.* |
+| **6.4:** Build the "Manage Availability" calendar for the Nanny Dashboard. | `☐`    |
+| **Notes:** > *Use a library like `react-day-picker`. Save availability data to the nanny's profile.* |
+| **6.5:** Build the "Edit Profile" section for the Nanny Dashboard.         | `☐`    |
+| **Notes:** > *Allow nannies to update their bio, hourly rate, and profile picture.* |
+| **6.6:** Build the Admin Dashboard layout (`/admin/dashboard/layout.tsx`). | `☐`    |
+| **Notes:** > *This layout should have admin-specific navigation (Users, Nannies, Bookings, Disputes).* |
+| **6.7:** Build the "Manage Nannies" section for the Admin Dashboard.     | `☐`    |
+| **Notes:** > *Display a table of all nannies with their verification status. Allow admins to approve/reject.* |
+| **6.8:** Build the "View All Bookings" section for the Admin Dashboard.   | `☐`    |
+| **Notes:** > *A master table of all bookings on the platform, with filtering options.* |
+| **6.9:** Implement role-based access control (RBAC) middleware.          | `☐`    |
+| **Notes:** > *Protect dashboard routes (`/client`, `/nanny`, `/admin`) based on the user's role in the `profiles` table.* |
+
+---
+
+## Phase 7: Finalization & Deployment
+
+This phase prepares the application for launch.
+
+| Task                                                               | Status |
+| :----------------------------------------------------------------- | :----: |
+| **7.1:** Implement a real-time chat feature between clients and nannies. | `☐`    |
+| **Notes:** > *Use Supabase Realtime for this. Create a `messages` table.* |
+| **7.2:** Implement email notifications for key events (e.g., booking confirmation). | `☐`    |
+| **Notes:** > *Use a service like Resend or Vercel's email provider integration.* |
+| **7.3:** Write end-to-end tests for critical user flows (e.g., booking). | `☐`    |
+| **Notes:** > *Use a framework like Playwright or Cypress.* |
+| **7.4:** Conduct a full responsive design audit and fix all styling issues. | `☐`    |
+| **Notes:** > *Test thoroughly on Chrome, Firefox, Safari, and on mobile device emulators.* |
+| **7.5:** Final review and deployment to production on Vercel.         | `☐`    |
+| **Notes:** > *Ensure all environment variables are correctly set for the production environment.* |
+
+
+**Notes:**
+> *Cursor AI can add notes here.*
