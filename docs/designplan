@@ -1,0 +1,86 @@
+
+@designplan.md
+# Design Plan: London Nanny Booking Platform
+
+## 1. Project Vision
+
+To create a premium, modern, and trustworthy online platform for booking vetted, self-employed nannies in London. The design will be clean, intuitive, and visually stunning, catering to a clientele of busy professionals and discerning travellers.
+
+## 2. Target Audience
+
+* Working professionals in London with demanding schedules.
+* Affluent tourists and travellers requiring last-minute, reliable childcare in hotels.
+
+## 3. Core Design Principles
+
+* **Modern & Stunning:** A visually appealing interface that communicates quality and exclusivity.
+* **Simplicity & Clarity:** An intuitive user experience that makes finding and booking a nanny effortless.
+* **Trust & Safety:** Design elements that build confidence and underscore the platform's commitment to security and thorough vetting.
+* **Responsive & Accessible:** A seamless experience across all devices, from mobile phones to desktops.
+
+## 4. Colour Palette
+
+The colour scheme will be sophisticated, calming, and professional.
+
+* **Primary:** Deep Navy (`#001f3f`) - Used for primary buttons, key headers, and core branding elements to convey trust and professionalism.
+* **Secondary:** Soft Cream (`#FDFBF7`) - Used for page backgrounds to create a warm, inviting, and clean canvas.
+* **Accent:** Gold (`#D4AF37`) - Used for highlights, important icons, and to add a touch of luxury.
+* **Text:** Charcoal (`#333333`) - For main body text to ensure high readability.
+* **Success:** Muted Teal (`#48BB78`) - For confirmations and success messages.
+* **Error:** Soft Terracotta (`#E57373`) - For alerts and error messages.
+
+## 5. Typography
+
+* **Headings:** A sophisticated serif font such as "Playfair Display" to convey elegance and authority.
+* **Body & UI Elements:** A clean and highly legible sans-serif font like "Inter" or "Manrope" for all other text to ensure clarity.
+
+## 6. UI/UX Elements
+
+* **Imagery:** High-quality, professional photographs of nannies and children in bright, modern London environments. Avoid stock photos where possible.
+* **Buttons:** Softly rounded corners, clear labels, and subtle hover/active states.
+* **Forms:** Clean, well-spaced input fields with clear labels that float within the field on focus.
+* **Cards:** Nanny profiles and booking summaries will be displayed on clean cards with a clear visual hierarchy.
+* **Icons:** A consistent set of minimalist, outlined icons.
+
+## 7. Page Breakdown
+
+### 7.1. Public Pages
+
+* **Homepage:**
+    * **Hero Section:** A compelling headline ("Exceptional childcare, effortlessly arranged.") over a professional video background showcasing a positive nanny-child interaction. A clear "Find a Nanny" call-to-action.
+    * **How It Works:** A simple 3-step visual guide (Search, Book, Relax).
+    * **Featured Nannies:** A curated carousel of top-rated nanny profiles.
+    * **Trust & Safety Section:** Highlighting the rigorous vetting process with icons and brief text.
+    * **Testimonials:** Quotes from satisfied clients.
+* **Pricing:** A clear, transparent table of hourly rates and any potential supplementary fees.
+* **Compliance & Vetting:** A detailed page explaining the end-to-end vetting process, background checks, and commitment to safety. This is critical for building user trust.
+* **FAQs:** Two distinct sections: one for Clients and one for Nannies.
+* **About Us:** The story and mission behind the brand.
+* **Contact Page:** A simple contact form with business contact details.
+
+### 7.2. User (Client) Dashboard
+
+* A clean interface showing:
+    * Upcoming and Past Bookings.
+    * A link to the messaging/chat interface.
+    * Saved nanny profiles.
+    * Account and payment settings.
+    * Ability to add and update child's dietary and other requirements.
+
+### 7.3. Nanny Dashboard
+
+* An overview of:
+    * Booking requests and upcoming confirmed bookings.
+    * A calendar to manage availability.
+    * Messaging/chat interface.
+    * Earnings and payment history.
+    * Profile editing.
+
+### 7.4. Admin Dashboard
+
+* A comprehensive backend view to:
+    * Manage all users and nannies.
+    * Oversee all bookings.
+    * Approve or reject nanny applications and monitor verification status.
+    * Handle and mediate any disputes.
+
