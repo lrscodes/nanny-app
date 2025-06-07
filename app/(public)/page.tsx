@@ -1,12 +1,18 @@
 import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
+import {
+  Card,
+  CardContent,
+} from "@/components/ui/Card";
 import Image from "next/image";
 import { CheckCircle, Shield, Heart, Star, Building, Users } from "lucide-react";
+import Features from "@/components/landing/Features";
+import Hero from "@/components/landing/Hero";
 
 const testimonials = [
   {
-    quote: "Hotel Nannies was a lifesaver on our trip to London. The nanny was professional, and our kids loved her. The peace of mind was priceless.",
-    author: "The Miller Family",
+    quote:
+      "The peace of mind knowing our children are in safe hands while we're away is priceless. The nannies are professional, caring, and truly exceptional.",
+    name: "The Hamilton Family",
     rating: 5,
   },
   {
@@ -42,7 +48,7 @@ export default function HomePage() {
             effortlessly arranged.
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
-            Connect with London's most trusted, vetted, and self-employed nannies for your peace of mind.
+            Connect with London&apos;s most trusted, vetted, and self-employed nannies for your peace of mind.
           </p>
           <div className="mt-8">
             <Button asChild size="lg" variant="secondary">
@@ -146,7 +152,7 @@ export default function HomePage() {
       {/* Testimonials Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold font-serif text-center">Don't just take our word for it...</h2>
+          <h2 className="text-4xl font-bold font-serif text-center">Don&apos;t just take our word for it...</h2>
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (
               <Card key={testimonial.author} className="shadow-lg">
@@ -156,7 +162,7 @@ export default function HomePage() {
                         <Star key={i} className="w-5 h-5 text-accent fill-current" />
                       ))}
                   </div>
-                  <p className="italic text-center text-gray-700">"{testimonial.quote}"</p>
+                  <p className="italic text-center text-gray-700">&quot;{testimonial.quote}&quot;</p>
                   <p className="mt-4 font-semibold text-right text-primary">— {testimonial.author}</p>
                 </CardContent>
               </Card>

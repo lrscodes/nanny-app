@@ -49,7 +49,7 @@ export default function AboutPage() {
                   <span className="font-semibold">Exceptional Quality:</span> We partner with experienced, passionate childcare professionals who are dedicated to their craft.
                 </li>
                 <li>
-                  <span className="font-semibold">Effortless Experience:</span> From booking to payment, we've designed every aspect of our service to be seamless, intuitive, and stress-free.
+                  <span className="font-semibold">Effortless Experience:</span> From booking to payment, we&apos;ve designed every aspect of our service to be seamless, intuitive, and stress-free.
                 </li>
               </ul>
             </div>

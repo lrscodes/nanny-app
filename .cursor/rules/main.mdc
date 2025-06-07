@@ -23,6 +23,7 @@ Before assisting with any task, always read and understand:
 3. [implementation-plan](mdc:docs/implementation-plan) - Development phases, timelines, and specific task priorities
 4. [designplan](mdc:docs/designplan) - Design Plan document follow the UI and UX and CSS styles
 5. [tech-stack.md](mdc:docs/tech-stack.md) - Tech Stack understadn the projects technology stack used to build the web app.
+6. fix all &pos errors
 
 
 ## Key Project Components

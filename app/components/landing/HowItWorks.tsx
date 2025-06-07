@@ -69,7 +69,7 @@ const HowItWorks = () => {
             How It Works
           </h2>
           <p className="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            Simple steps to get started, whether you're looking for care or offering your skills.
+            Simple steps to get started, whether you&apos;re looking for care or offering your skills.
           </p>
         </div>
 

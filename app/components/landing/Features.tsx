@@ -75,7 +75,7 @@ const Features = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-x-10 gap-y-16 sm:grid-cols-2 lg:grid-cols-3 sm:gap-y-20">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <div
               key={feature.title}
               className="relative p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl shadow-slate-200/70 dark:shadow-black/30 border border-slate-200 dark:border-slate-700 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-200/50 dark:hover:shadow-blue-900/50 transition-all duration-300 ease-in-out group flex flex-col min-h-[260px]"

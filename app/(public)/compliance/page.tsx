@@ -7,7 +7,10 @@ export default function CompliancePage() {
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold font-serif">Compliance & Vetting</h1>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Our commitment to your family's safety is absolute. Learn about the rigorous standards every nanny on our platform must meet.
+            At Hotel Nannies, our commitment to safety isn't just a policy; it's the cornerstone of
+            our service. We understand that leaving your child with a new caregiver requires immense
+            trust. We earn that trust through a vetting process that is meticulous, comprehensive,
+            and one of a a kind in the industry.
           </p>
         </div>
 
@@ -56,7 +59,8 @@ export default function CompliancePage() {
                   <div>
                     <h3 className="text-xl font-semibold">3. Professional Reference Checks</h3>
                     <p className="mt-2 text-gray-600 leading-relaxed">
-                      We require a minimum of two professional childcare-related references. Our team personally contacts these referees to verify the candidate's work history, reliability, and character. We ask detailed questions about their performance and suitability for working with children in private settings.
+                      We require a minimum of two professional childcare-related references. Our team personally contacts these referees to verify the candidate's work history, reliability,
+                      and character. We ask detailed questions about their performance and suitability for working with children in private settings.
                     </p>
                   </div>
                 </li>
