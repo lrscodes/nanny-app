@@ -2,12 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "../ui/Button";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,17 +21,17 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "/#find-a-nanny", label: "Find a Nanny" },
+    { href: "/booking", label: "Find a Nanny" },
     { href: "/pricing", label: "Pricing" },
     { href: "/compliance", label: "Compliance" },
     { href: "/about", label: "About" },
   ];
 
+  const navBgClass = isHomePage && !isScrolled ? "bg-transparent" : "bg-primary shadow-lg";
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        isScrolled ? "bg-primary shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${navBgClass}`}
     >
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-bold font-serif text-white">
