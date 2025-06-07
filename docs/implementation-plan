@@ -12,25 +12,25 @@ This phase establishes the technical bedrock of the application.
 
 | Task                                                                                   | Status |
 | :------------------------------------------------------------------------------------- | :----: |
-| **1.1:** Initialize Next.js 14+ project with the App Router and TypeScript.            | `☐`    |
+| **1.1:** Initialize Next.js 14+ project with the App Router and TypeScript.            | `✅`    |
 | **Notes:** > *Ensure Tailwind CSS is configured during the setup process.* |
-| **1.2:** Set up Supabase project: initialize database, auth, and storage.                | `☐`    |
-| **Notes:** > *Save project URL and anon key as environment variables (`.env.local`).* |
-| **1.3:** Create a Supabase client helper (`/lib/supabase/client.ts`) for client-side interactions. | `☐`    |
-| **Notes:** > *This will be used in components and pages for data fetching.* |
+| **1.2:** Set up Supabase project: initialize database, auth, and storage.                | `●`    |
+| **Notes:** > *Save project URL and anon key as environment variables (`.env.local`). Migrated to `@supabase/ssr` for auth.* |
+| **1.3:** Create a Supabase client helper (`/lib/supabase/client.ts`) for client-side interactions. | `✅`    |
+| **Notes:** > *Implemented with `@supabase/ssr`. Created client, and root `middleware.ts` for session management.* |
 | **1.4:** Create a Supabase admin helper (`/lib/supabase/admin.ts`) for server-side/admin tasks. | `☐`    |
 | **Notes:** > *Use the service role key for elevated privileges in API routes.* |
 | **1.5:** Configure Vercel project and link to the GitHub repository for CI/CD.          | `☐`    |
 | **Notes:** > *Add Supabase environment variables to the Vercel project settings.* |
-| **1.6:** Define the global layout (`/app/layout.tsx`) with primary font and background color. | `☐`    |
+| **1.6:** Define the global layout (`/app/layout.tsx`) with primary font and background color. | `✅`    |
 | **Notes:** > *Import "Inter" and "Playfair Display" fonts from Google Fonts here.* |
-| **1.7:** Create a UI component library directory (`/components/ui`).                       | `☐`    |
+| **1.7:** Create a UI component library directory (`/components/ui`).                       | `✅`    |
 | **Notes:** > *This will house all reusable, generic components like Button, Input, Card.* |
-| **1.8:** Implement the reusable `Button.tsx` component with variants.                   | `☐`    |
+| **1.8:** Implement the reusable `Button.tsx` component with variants.                   | `✅`    |
 | **Notes:** > *Variants: primary (navy), secondary (gold), destructive (terracotta). Add loading state.* |
-| **1.9:** Implement the reusable `Card.tsx` component.                                   | `☐`    |
+| **1.9:** Implement the reusable `Card.tsx` component.                                   | `✅`    |
 | **Notes:** > *A generic wrapper with soft shadows and rounded corners.* |
-| **1.10:** Implement the reusable `Input.tsx` and `Label.tsx` components.                | `☐`    |
+| **1.10:** Implement the reusable `Input.tsx` and `Label.tsx` components.                | `✅`    |
 | **Notes:** > *These will be used in all forms across the application.* |
 
 ---
@@ -68,19 +68,19 @@ This phase involves building all the pages accessible to non-logged-in visitors.
 
 | Task                                                                 | Status |
 | :------------------------------------------------------------------- | :----: |
-| **3.1:** Build the shared `Navbar.tsx` component for the public layout. | `☐`    |
+| **3.1:** Build the shared `Navbar.tsx` component for the public layout. | `✅`    |
 | **Notes:** > *Implement logic for transparent-to-solid background on scroll.* |
-| **3.2:** Build the shared `Footer.tsx` component.                       | `☐`    |
+| **3.2:** Build the shared `Footer.tsx` component.                       | `✅`    |
 | **Notes:** > *Include all required navigation links and a simple sitemap structure.* |
-| **3.3:** Build the Homepage (`/app/page.tsx`) with all specified sections. | `☐`    |
+| **3.3:** Build the Homepage (`/app/page.tsx`) with all specified sections. | `✅`    |
 | **Notes:** > *Use static data for "Featured Nannies" and "Testimonials" initially.* |
-| **3.4:** Build the Pricing page (`/pricing/page.tsx`) with a pricing table component. | `☐`    |
+| **3.4:** Build the Pricing page (`/pricing/page.tsx`) with a pricing table component. | `✅`    |
 | **Notes:** > *Clearly structure the table with rates and supplementary fees.* |
-| **3.5:** Build the Compliance & Vetting page (`/compliance/page.tsx`). | `☐`    |
+| **3.5:** Build the Compliance & Vetting page (`/compliance/page.tsx`). | `✅`    |
 | **Notes:** > *Focus on clean typography and readability for this text-heavy page.* |
-| **3.6:** Build the FAQ page (`/faq/page.tsx`) with a reusable Accordion component. | `☐`    |
+| **3.6:** Build the FAQ page (`/faq/page.tsx`) with a reusable Accordion component. | `✅`    |
 | **Notes:** > *The Accordion should be a generic component placed in `/components/ui`.* |
-| **3.7:** Build the About Us page (`/about/page.tsx`).                   | `☐`    |
+| **3.7:** Build the About Us page (`/about/page.tsx`).                   | `✅`    |
 | **Notes:** > *Structure with a hero image, mission statement, and team section.* |
 
 ---
@@ -131,18 +131,18 @@ This phase involves building the authenticated areas for each user role.
 
 | Task                                                                   | Status |
 | :--------------------------------------------------------------------- | :----: |
-| **6.1:** Build the Client Dashboard layout and main page (`/client/dashboard/page.tsx`). | `☐`    |
+| **6.1:** Build the Client Dashboard layout and main page (`/client/page.tsx`). | `●`    |
 | **Notes:** > *Fetch and display lists of upcoming and past bookings for the logged-in client.* |
 | **6.2:** Build the "Manage Children" section for the Client Dashboard.     | `☐`    |
 | **Notes:** > *Allow clients to CRUD their children's information.* |
-| **6.3:** Build the Nanny Dashboard layout and main page (`/nanny/dashboard/page.tsx`). | `☐`    |
+| **6.3:** Build the Nanny Dashboard layout and main page (`/nanny/page.tsx`). | `●`    |
 | **Notes:** > *Show booking requests, confirmed jobs, and an earnings summary.* |
 | **6.4:** Build the "Manage Availability" calendar for the Nanny Dashboard. | `☐`    |
 | **Notes:** > *Use a library like `react-day-picker`. Save availability data to the nanny's profile.* |
 | **6.5:** Build the "Edit Profile" section for the Nanny Dashboard.         | `☐`    |
 | **Notes:** > *Allow nannies to update their bio, hourly rate, and profile picture.* |
-| **6.6:** Build the Admin Dashboard layout (`/admin/dashboard/layout.tsx`). | `☐`    |
-| **Notes:** > *This layout should have admin-specific navigation (Users, Nannies, Bookings, Disputes).* |
+| **6.6:** Build the Admin Dashboard layout (`/admin/dashboard/layout.tsx`). | `●`    |
+| **Notes:** > *This layout should have admin-specific navigation (Users, Nannies, Bookings, Disputes). A shared layout `(dashboard)/layout.tsx` has been created and is feature-flagged.* |
 | **6.7:** Build the "Manage Nannies" section for the Admin Dashboard.     | `☐`    |
 | **Notes:** > *Display a table of all nannies with their verification status. Allow admins to approve/reject.* |
 | **6.8:** Build the "View All Bookings" section for the Admin Dashboard.   | `☐`    |
@@ -172,3 +172,5 @@ This phase prepares the application for launch.
 
 **Notes:**
 > *Cursor AI can add notes here.*
+> - **Build Fix & Feature Flag:** Resolved a Vercel build failure by correcting the routing for dashboard pages. The dashboard is now placed behind a feature flag (`flags.dashboard`) to bypass it in production builds until it's ready.
+> - **Supabase SSR Migration:** Migrated from the deprecated `@supabase/auth-helpers-nextjs` to `@supabase/ssr`. This involved installing new packages, creating a new root middleware for session management, and setting up a client helper. This is a crucial update for modern, server-side authentication with Next.js and Supabase.
